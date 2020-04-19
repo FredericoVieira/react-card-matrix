@@ -1,0 +1,17 @@
+@import "../../styles/variables.scss";
+
+.content {
+  color: $color-black;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.title {
+  margin: 10px;
+  font-size: 20px;
+  color: $color-black;
+}
+
+.row {
+  margin: 50px;
+}
