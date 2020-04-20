@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { flipCard } from "../../actions/cards";
 
 import "./styles.scss";
+import { handleCardImage } from "../../utils";
 
 const Card = ({ id, isFlipped, flipCardClicked }) => {
-
   const handleClick = (e) => {
     e.preventDefault();
     flipCardClicked(id)
@@ -15,11 +15,11 @@ const Card = ({ id, isFlipped, flipCardClicked }) => {
   return (
     <ReactCardFlip isFlipped={isFlipped} className="card-wrapper">
       <div className="card card-front" onClick={handleClick}>
-        FRONT
+        <img src={handleCardImage(id)} alt={`card-${id}`} className="card-image" />
       </div>
 
       <div className="card card-back" onClick={handleClick}>
-        BACK
+        <img src={handleCardImage()} alt="card-back" className="card-image" />
       </div>
     </ReactCardFlip> 
   );

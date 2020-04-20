@@ -7,6 +7,9 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.5s;
 
+  &-image {
+    height: 100%;
+  }
 
   &-front,
   &-back {
@@ -16,11 +19,11 @@
   }
 
   &-front {
-    background-color: $color-white;
+    background-color: $color-black;
   }
 
   &-back {
-    background-color: $color-primary;
+    background-color: $color-black;
   }
 
   &:hover {
