@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import ReactCardFlip from "react-card-flip";
+import { connect } from "react-redux";
+import { flipCard } from "../../actions/cards";
 
 import "./styles.scss";
 
-const Card = () => {
-  const [isFlipped, setIsFlipped] = useState(true)
+const Card = ({ id, isFlipped, flipCardClicked }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    setIsFlipped(!isFlipped);
+    flipCardClicked(id)
   }
 
   return (
-    <ReactCardFlip isFlipped={isFlipped}>
+    <ReactCardFlip isFlipped={isFlipped} className="card-wrapper">
       <div className="card card-front" onClick={handleClick}>
         FRONT
       </div>
@@ -25,4 +25,10 @@ const Card = () => {
   );
 };
 
-export default Card;
+const mapDispatchToProps = dispatch => {
+  return {
+    flipCardClicked: id => dispatch(flipCard(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Card);
